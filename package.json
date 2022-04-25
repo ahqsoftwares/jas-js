@@ -1,0 +1,21 @@
+{
+  "name": "jason",
+  "version": "1.0.0",
+  "description": "The Easiest and the fastest database file format",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Starting Test\" && node test/index"
+  },
+  "keywords": [
+    "json",
+    "easy-json",
+    "human-readable",
+    "easy-and-fast"
+  ],
+  "author": "AHQ Softwares @ JASON",
+  "license": "ISC",
+  "dependencies": {
+    "events": "^3.3.0",
+    "filedownloader": "^1.2.7"
+  }
+}
