@@ -24,10 +24,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ahqsoftwares/jason.git"
+    "url": "git+https://github.com/ahqsoftwares/jas-js.git"
   },
   "bugs": {
-    "url": "https://github.com/ahqsoftwares/jason/issues"
+    "url": "https://github.com/ahqsoftwares/jas-js/issues"
   },
-  "homepage": "https://github.com/ahqsoftwares/jason#readme"
+  "homepage": "https://github.com/ahqsoftwares/jas-js#readme"
 }
