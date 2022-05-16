@@ -1,21 +1,21 @@
 {
-  "name": "jason",
-  "version": "1.0.0",
-  "description": "The Easiest and the fastest database file format",
+  "name": "jas-script",
+  "version": "0.1.0-beta-1",
+  "description": "A ts style version of js",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Starting Test\" && node test/index"
   },
   "keywords": [
-    "json",
-    "easy-json",
-    "human-readable",
-    "easy-and-fast"
+    "ts-style",
+    "js",
+    "modded",
+    "framework"
   ],
-  "author": "AHQ Softwares @ JASON",
+  "author": "AHQ Softwares @ JAS",
   "license": "ISC",
   "dependencies": {
-    "events": "^3.3.0",
-    "filedownloader": "^1.2.7"
+    "eris": "^0.16.1",
+    "events": "^3.3.0"
   }
 }

@@ -1,30 +1,97 @@
-# JASON
-Jason(not to be confused with json) : The Easiest and the fastest database file format
+# **JAS**
+"JAS" is simply Javascript Actions Script based on the idea of a unique style js syntaxes
 
-## Data Types
-JASON supports the following formats:-
-1. String ("string")
-2. Integer (20)
-3. Arrays ["20", 30]
-4. Objects (soon!)
-
-## Example Of JASON
-
-Jason file
-```jason
-data.type=jason;
-type;
-code=ahqsoftwares;
-type=[20];
-```
-
-JS Code
+## Example
 ```js
-//jason example
-const jason = require("jason");
-
-const reader = new jason("./test/test.jason");
-
-console.log(reader.get("type"));
-//returns [20]
+const jas = require("jas-script");
+const compiler = new jas();
+compile.compile("./test/code.js");
 ```
+test/code.js 
+```ts
+//A simple discord bot code on jas
+const discord = need(`eris`);
+client.connect()
+client.on("error", (err) => print(err));
+```
+
+# **Docs**
+
+Table of contents:-
+1. [Basics](#understanding-the-basics)
+2. [Difference](#difference-between-js-and-jas)
+
+### Understanding the Basics
+First of all make an index.js file
+```js
+const jas = require("jas-script");
+const module = new jas("./test/code.js");
+module.compile();
+```
+#### Now create a folder `test` and inside the folder make a file `code.js`
+#### Contents:-
+```js
+print(`Hello world!`);
+```
+now just run `node index.js` and you'll see the result
+```js
+JAS-System-info: Found file ./test/code.ts
+Hello world
+``` 
+
+### Difference between js and jas
+
+#### Following the differences between js and jas
+
+# 1. require() is now need()
+
+js
+```js
+const fs = require("fs");
+```
+jas
+```js
+const fs = need("fs");
+```
+
+# 2. Constructor
+
+### `new module(...options)` is now `a(module, ...options)`
+
+js
+```js
+const jas = require("jas-script");
+const compiler = new jas("./test/code.js");
+```
+
+same code in jas
+```js
+const jas = need("jas-script");
+const compiler =  a(jas, "./test/code.js");
+/*
+You can still use new if you're not accustomed to it
+*/
+const compiler = new jas("./test/code.js"); //using legacy one
+```
+
+# 3. Process object changes
+## In jas process.cwd() will return "home/vm" and process.mainCwd() will return the correct dir
+
+### js
+```js
+console.log(process.cwd())
+//returns dir
+```
+
+### jas
+```js
+print(process.cwd())
+//returns "home/vm"
+print(process.mainCwd())
+//returns dir name
+```
+
+# NOTE
+## **1.** JAS cannot be used to make packages
+## **2.** JAS script once loaded cannot be terminated until node process dies
+## **3.** JAS script is still in BETA
