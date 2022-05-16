@@ -19,9 +19,10 @@ client.on("error", (err) => print(err));
 
 Table of contents:-
 1. [Basics](#understanding-the-basics)
-2. [Difference](#difference-between-js-and-jas)
+2. [Inter Process Database](#inter-process-jas-database)
+3. [Difference](#difference-between-js-and-jas)
 
-### Understanding the Basics
+# Understanding the Basics
 First of all make an index.js file
 ```js
 const jas = require("jas-script");
@@ -38,8 +39,40 @@ now just run `node index.js` and you'll see the result
 JAS-System-info: Found file ./test/code.ts
 Hello world
 ``` 
+# Inter process jas database
 
-### Difference between js and jas
+#### The object is `tempbase`
+
+#### The jas database has the following functions as a general db
+```js
+/*
+Set data to tempbase
+*/
+tempbase.set(`Hello`, "world");
+tempbase.set(`number`, 1);
+
+/*
+Get data from tempbase
+*/
+tempbase.fetch(`Hello`); //returns "world"
+
+/*
+Delete data from tempbase
+*/
+tempbase.delete(`Hello`);
+
+/*
+Add data to tempbase
+*/
+tempbase.add(`number`, 3); //number is now 4
+
+/*
+Subtract data from tembase
+*/
+tempbase.subtract(`number`, 3); //number is now 1
+```
+
+# Difference between js and jas
 
 #### Following the differences between js and jas
 

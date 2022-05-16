@@ -8,6 +8,7 @@ const defaultOptions = {
 };
 let options = defaultOptions;
 let file = "";
+let dbase = {};
 /**
  * JAS the ts style js
  */
@@ -61,6 +62,33 @@ class JAS extends EventEmitter {
                     print: console.log,
                     a: function(name, ...options) {
                         return new name(...options);
+                    },
+                    tempbase: {
+                        fetch: function(key) {
+                            if (!key) throw new Error("key is required!");
+                            return dbase[key];
+                        },
+                        set: function(key, value) {
+                            if (!key) throw new Error("key is required!");
+                            if (!value) throw new Error("value is required!");
+                            dbase[key] = value;
+                        },
+                        add: function(key, int) {
+                            if (!key) throw new Error("key is required!");
+                            if (!int) throw new Error("value is required!");
+                            let temp = dbase[key];
+                            dbase[key] = (temp + Number(int));
+                        },
+                        subtract: function(key, int) {
+                            if (!key) throw new Error("key is required!");
+                            if (!int) throw new Error("value is required!");
+                            let temp = dbase[key];
+                            dbase[key] = (temp - Number(int));
+                        },
+                        delete: function(key) {
+                            if (!key) throw new Error("key is required!");
+                            delete dbase[key];
+                        }
                     }
                 });
             });
@@ -81,6 +109,33 @@ class JAS extends EventEmitter {
                     print: console.log,
                     a: function(name, ...options) {
                         return new name(...options);
+                    },
+                    tempbase: {
+                        fetch: function(key) {
+                            if (!key) throw new Error("key is required!");
+                            return dbase[key];
+                        },
+                        set: function(key, value) {
+                            if (!key) throw new Error("key is required!");
+                            if (!value) throw new Error("value is required!");
+                            dbase[key] = value;
+                        },
+                        add: function(key, int) {
+                            if (!key) throw new Error("key is required!");
+                            if (!int) throw new Error("value is required!");
+                            let temp = dbase[key];
+                            dbase[key] = (temp + Number(int));
+                        },
+                        subtract: function(key, int) {
+                            if (!key) throw new Error("key is required!");
+                            if (!int) throw new Error("value is required!");
+                            let temp = dbase[key];
+                            dbase[key] = (temp - Number(int));
+                        },
+                        delete: function(key) {
+                            if (!key) throw new Error("key is required!");
+                            delete dbase[key];
+                        }
                     }
                 });
             });
