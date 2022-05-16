@@ -1,6 +1,6 @@
 {
   "name": "jas-script",
-  "version": "0.1.0-beta-1",
+  "version": "0.1.0-beta-2",
   "description": "A ts style version of js",
   "main": "src/index.js",
   "scripts": {
@@ -13,9 +13,21 @@
     "framework"
   ],
   "author": "AHQ Softwares @ JAS",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "eris": "^0.16.1",
     "events": "^3.3.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahqsoftwares/jason.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ahqsoftwares/jason/issues"
+  },
+  "homepage": "https://github.com/ahqsoftwares/jason#readme"
 }
