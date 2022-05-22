@@ -18,7 +18,9 @@ class JAS extends EventEmitter {
      * @param {*} file 
      * @param {*} options 
      */
-    constructor (path, opt) {
+    constructor (file, options) {
+        let path = file;
+        let opt = options;
         super();
 
         options = {
@@ -47,8 +49,8 @@ class JAS extends EventEmitter {
     compile(path) {
         if (!(path)) {
             fs.readFile(file, function(error, out) {
-                if (error) throw new Error(error);
-                VM.runInNewContext(out, {
+                if (error) throw new Error(String(error));
+                VM.runInNewContext(String(out), {
                     need: require,
                     process: {
                         ...process,
@@ -89,13 +91,14 @@ class JAS extends EventEmitter {
                             if (!key) throw new Error("key is required!");
                             delete dbase[key];
                         }
-                    }
+                    },
+                    dir: (process.cwd() + file.replace(".", ""))
                 });
             });
         } else {
             fs.readFile(path, function(error, out) {
-                if (error) throw new Error(error);
-                VM.runInNewContext(out, {
+                if (error) throw new Error(String(error));
+                VM.runInNewContext(String(out), {
                     need: require,
                     process: {
                         ...process,
@@ -136,7 +139,8 @@ class JAS extends EventEmitter {
                             if (!key) throw new Error("key is required!");
                             delete dbase[key];
                         }
-                    }
+                    },
+                    dir: (process.cwd() + file.replace(".", ""))
                 });
             });
         }

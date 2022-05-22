@@ -1,6 +1,6 @@
 {
   "name": "jas-script",
-  "version": "0.2.0-beta-7",
+  "version": "0.2.0-beta-8-cli-test",
   "description": "A ts style version of js",
   "main": "src/index.js",
   "scripts": {
@@ -15,7 +15,8 @@
   "author": "AHQ Softwares @ JAS",
   "license": "MIT",
   "dependencies": {
-    "events": "^3.3.0"
+    "events": "^3.3.0",
+    "yargs": "^17.5.1"
   },
   "directories": {
     "test": "test"
@@ -27,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/ahqsoftwares/jas-js/issues"
   },
-  "homepage": "https://github.com/ahqsoftwares/jas-js#readme"
+  "homepage": "https://github.com/ahqsoftwares/jas-js#readme",
+  "bin": {
+    "load": "cli/load"
+  }
 }
