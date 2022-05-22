@@ -1,6 +1,6 @@
 {
   "name": "jas-script",
-  "version": "0.2.0-beta-8-cli-test",
+  "version": "0.2.0-beta-9-cli-test",
   "description": "A ts style version of js",
   "main": "src/index.js",
   "scripts": {
@@ -30,6 +30,6 @@
   },
   "homepage": "https://github.com/ahqsoftwares/jas-js#readme",
   "bin": {
-    "load": "cli/load"
+    "load": "cli/load.js"
   }
 }
