@@ -2,8 +2,10 @@
 "JAS" is simply Javascript Actions Script based on the idea of a unique style js syntaxes
 
 ## Contribuers
-Cli: (Retro)[https://github.com/retrouser955]
-Package: (AHQ Softwares)[https://github.com/ahqsoftwares]
+Cli: [Retro](https://github.com/retrouser955)
+
+Package: [AHQ Softwares](https://github.com/ahqsoftwares)
+
 
 ## Example
 ```js
@@ -135,7 +137,7 @@ print(process.mainCwd())
 JAS also has a new CLI, as of 0.2.0.
 Contents under CLI:-
 1. [How to use?](#how-to-install-the-cli)
-2. []
+2. [Run jas code](#run-your-jas-code-from-the-cli)
 
 ## How to install the cli?
 To install the `cli` use the following command
