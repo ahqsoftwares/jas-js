@@ -15,11 +15,10 @@ let dbase = {};
 class JAS extends EventEmitter {
     /**
      * Make a jas compiler/reader
-     * @param {*} file 
+     * @param {*} path 
      * @param {*} options 
      */
-    constructor (file, options) {
-        let path = file;
+    constructor (path, options) {
         let opt = options;
         super();
 
