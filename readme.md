@@ -1,6 +1,10 @@
 # **JAS**
 "JAS" is simply Javascript Actions Script based on the idea of a unique style js syntaxes
 
+## Contribuers
+Cli: (Retro)[https://github.com/retrouser955]
+Package: (AHQ Softwares)[https://github.com/ahqsoftwares]
+
 ## Example
 ```js
 const jas = require("jas-script");
@@ -21,6 +25,7 @@ Table of contents:-
 1. [Basics](#understanding-the-basics)
 2. [Inter Process Database](#inter-process-jas-database)
 3. [Difference](#difference-between-js-and-jas)
+4. [CLI](#cli)
 
 # Understanding the Basics
 First of all make an index.js file
@@ -122,6 +127,33 @@ print(process.cwd())
 //returns "home/vm"
 print(process.mainCwd())
 //returns dir name
+```
+
+# 3. `__dirname` is now `dir`
+
+# CLI
+JAS also has a new CLI, as of 0.2.0.
+Contents under CLI:-
+1. [How to use?](#how-to-install-the-cli)
+2. []
+
+## How to install the cli?
+To install the `cli` use the following command
+```js
+npm i jas-script -g --save
+```
+
+## Run your jas code from the cli
+You can run your jas code directly from the cli without using a js file by the following cmd
+
+### If installed globally
+```js
+load -f <fs file path>
+```
+
+### If install a devDeps
+```js
+jas-script load -f <fs file path>
 ```
 
 # NOTE
