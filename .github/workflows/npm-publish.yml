@@ -4,8 +4,8 @@
 name: Node.js Package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [master]
 
 jobs:
   build:
@@ -14,9 +14,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
-      - run: npm ci
-      - run: npm test
+          node-version: 17
+      - name: Install deps
+        run: npm i
 
   publish-npm:
     needs: build
@@ -25,9 +25,11 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 17
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish -tag beta
+      - name: Install deps
+        run: npm i
+      - name: Publish beta package
+        run: npm publish -tag beta
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{secrets.TOKEN}}
