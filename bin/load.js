@@ -7,4 +7,4 @@ const options = yargs
     .option("f", { alias: "file", describe: "Path of the file you want to comple", type: "string", demandOption: true })
     .help(true)
     .argv;
-var complileToJS = utils.complile(yargs.argsv.f);
+var complileToJS = utils.complile(options.f);
