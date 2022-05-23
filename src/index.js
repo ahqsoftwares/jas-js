@@ -2,6 +2,7 @@ const EventEmitter = require("events");
 const fs = require("fs-extra");
 const VM = require("vm");
 let dbase = {};
+let file = "";
 /**
  * JAS the ts style js
  */
@@ -30,13 +31,14 @@ class JAS extends EventEmitter {
 
         try {
             this.file = String(path);
+            file = String(path);
             fs.readFile(path, (err, out) => {
                 if (err) {
                     console.error("JAS-System-Error: Could not find " + file);
                     process.exit(404);
                 }
                 console.log(`JAS-System-info: Found file ${file}`);
-                if (options.debug) {
+                if (this.options.debug) {
                     console.log(`Contents:\n${out}`);
                 }
             });
