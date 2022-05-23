@@ -153,7 +153,7 @@ JAS also has a new CLI, as of 0.2.0.
 Contents under CLI:-
 1. [How to use?](#how-to-install-the-cli)
 2. [Run jas code](#run-your-jas-code-from-the-cli)
-3. [Get jas version from cli]()
+3. [Get jas version from cli](#get-version-name-from-the-cli)
 
 ## How to install the cli?
 To install the `cli` use the following command
@@ -167,6 +167,10 @@ You can run your jas code directly from the cli without using a js file by the f
 ### If installed globally
 ```bash
 jas load -f <fs file path>
+/*
+You can exclude -f also
+*/
+jas load <fs file path>
 ```
 
 ### If install a devDeps
@@ -175,7 +179,13 @@ Make a script in your package.json named "start"
 
 ```json
 "scripts": {
-    "start": "jas load -f \"yourFile.js\""
+    "start": "jas load -f \"pathToYourFile.js\""
+},
+/*
+You can also exclude -f
+*/
+"scripts": {
+    "start": "jas load \"pathToYourFile.js\""
 },
 ```
 Then run
@@ -205,4 +215,4 @@ jas --ver
 # NOTE
 ## **1.** JAS cannot be used to make packages
 ## **2.** JAS script once loaded cannot be terminated until node process dies
-## **3.** JAS script is still in BETA
+## **3.** JAS script is still in PRE RELEASE

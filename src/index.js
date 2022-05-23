@@ -4,6 +4,7 @@ const VM = require("vm");
 const chalk = require("chalk");
 const fetch = require("node-fetch");
 let dbase = {};
+let datas = {};
 let file = "";
 /**
  * JAS the ts style js
@@ -32,8 +33,12 @@ class JAS extends EventEmitter {
                 cli: opt?.cli || false
             }
         }
-
+        (async() => {
         try {
+            if (!(file)) {
+                console.log(chalk.yellow("File is not mentioned!\nYou have to mention the file path every time you use jas"));
+                return;
+            }
             this.file = String(path);
             file = String(path);
             fs.readFile(path, (err, out) => {
@@ -49,10 +54,11 @@ class JAS extends EventEmitter {
         } catch(e) {
             throw new Error(e);
         }
+        })()
         fetch("https://registry.npmjs.com/jas-script").then(data => data.json()).catch(e =>{
             console.log(chalk.red("Could not check for updates!"));
         }).then(data => {
-            if (!(opt.cli)) {
+            if (!(this.options.cli)) {
                 if (data[`dist-tags`][require("../package.json")[`ver_type`]] !== require("../package.json")[`version`]) {
                     console.log(chalk.green(`Seems like an update available! Install the latest update by using ${chalk.yellowBright(`npm i --save-dev jas-script@${require("../package.json")[`ver_type`]}`)}`));
                 }
@@ -106,7 +112,58 @@ class JAS extends EventEmitter {
                             delete dbase[key];
                         }
                     },
-                    dir: (process.cwd() + file.replace(".", ""))
+                    dir: (process.cwd() + file.replace(".", "")),
+                    _make: {
+                        int: function(key, value, change) {
+                            if (!key) throw new Error("key is required!");
+                            if (!(typeof(value) == "number")) throw new Error("value must be a number!");
+                            let options = {
+                                data: value,
+                                type: change || false,
+                                data_type: "number"
+                            }
+                            datas[this.file][key] = options;
+                        },
+                        string: function(key, value, change) {
+                            if (!key) throw new Error("key is required!");
+                            if (!(typeof(value) == "string")) throw new Error("value must be a string!");
+                            let options = {
+                                data: value,
+                                type: change || false,
+                                data_type: "string"
+                            }
+                            datas[this.file][key] = options;
+                        },
+                        boolean: function(key, value, change) {
+                            if (!key) throw new Error("key is required!");
+                            if (!(typeof(value) == "string")) throw new Error("value must be a boolean!");
+                            let options = {
+                                data: value,
+                                type: change || false,
+                                data_type: "boolean"
+                            }
+                            datas[this.file][key] = options;
+                        },
+                        any: function(key, value, change) {
+                            if (!key) throw new Error("key is required!");
+                            if (!(typeof(value) == "undefined")) throw new Error("value is required!");
+                            let options = {
+                                data: value,
+                                type: change || false,
+                                data_type: "any"
+                            }
+                            datas[this.file][key] = options;
+                        }
+                    },
+                    _fetch: function(key) {
+                        if (!(datas[this.file][key])) {
+                            return null;
+                        }
+                        return (datas[this.file][key][`value`], {
+                            type: datas[this.file][key][`data_type`],
+                            static: datas[this.file][key][`type`]
+                        });
+                    }
                 });
             });
         } else {
@@ -154,7 +211,58 @@ class JAS extends EventEmitter {
                             delete dbase[key];
                         }
                     },
-                    dir: (process.cwd() + file.replace(".", ""))
+                    dir: (process.cwd() + file.replace(".", "")),
+                    _make: {
+                        int: function(key, value, change) {
+                            if (!key) throw new Error("key is required!");
+                            if (!(typeof(value) == "number")) throw new Error("value must be a number!");
+                            let options = {
+                                data: value,
+                                type: change || false,
+                                data_type: "number"
+                            }
+                            datas[path][key] = options;
+                        },
+                        string: function(key, value, change) {
+                            if (!key) throw new Error("key is required!");
+                            if (!(typeof(value) == "string")) throw new Error("value must be a string!");
+                            let options = {
+                                data: value,
+                                type: change || false,
+                                data_type: "string"
+                            }
+                            datas[path][key] = options;
+                        },
+                        boolean: function(key, value, change) {
+                            if (!key) throw new Error("key is required!");
+                            if (!(typeof(value) == "string")) throw new Error("value must be a boolean!");
+                            let options = {
+                                data: value,
+                                type: change || false,
+                                data_type: "boolean"
+                            }
+                            datas[path][key] = options;
+                        },
+                        any: function(key, value, change) {
+                            if (!key) throw new Error("key is required!");
+                            if (!(typeof(value) == "undefined")) throw new Error("value is required!");
+                            let options = {
+                                data: value,
+                                type: change || false,
+                                data_type: "any"
+                            }
+                            datas[path][key] = options;
+                        }
+                    },
+                    _fetch: function(key) {
+                        if (!(datas[path][key])) {
+                            return null;
+                        }
+                        return (datas[path][key][`value`], {
+                            type: datas[path][key][`data_type`],
+                            static: datas[path][key][`type`]
+                        });
+                    }
                 });
             });
         }

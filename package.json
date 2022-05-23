@@ -1,6 +1,6 @@
 {
   "name": "jas-script",
-  "version": "0.2.8-main-beta",
+  "version": "0.3.1-main-beta",
   "ver_type": "beta",
   "description": "A ts style version of js",
   "main": "src/index.js",

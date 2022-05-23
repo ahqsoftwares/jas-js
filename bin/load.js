@@ -16,15 +16,23 @@ if (args[`_`][0] == "start" || args[`_`][0] == "load") {
         if (!(args.f)) {
             if (args.file) {
                 args.f = args.file;
+            } else if (args[`_`][1]) {
+                args.f = args[`_`][1];
+                args.file = args[`_`][1];
             }
         }
     }
-    if (!(args.f)) {
+    if (!(args.f || args[`_`].length == 1)) {
         console.log(chalk.blue(`
-Usage <file_path> compiles jas and runs it
+Description: compiles jas and runs it
+
+Usage: jas load -f <file_path>
 
 Options:
-    -f, -file      Path of the file you want to compile     [string] [required]`));
+    use:
+        -f, -file      Path of the file you want to compile     [string] [required]
+    or: 
+        jas load <file_path>`));
         process.exit(1);
     }
     console.log(chalk.yellow("Please wait..."));
@@ -44,7 +52,10 @@ ${chalk.green("load:")}
     Usage: jas load -f <file_path>
 
     Options:
-        -f, -file      Path of the file you want to compile     [string] [required]
+        use:
+            -f, -file      Path of the file you want to compile     [string] [required]
+        or: 
+            jas load <file_path>
     `)}
 
 ${chalk.green("version:")}
