@@ -68,7 +68,7 @@ class JAS extends EventEmitter {
 
     compile(path) {
         if (!path) {
-            fs.readFile(this.file, function(error, out) {
+            fs.readFile(file, function(error, out) {
                 if (error) throw new Error(String(error));
                 VM.runInNewContext(String(out), {
                     need: require,

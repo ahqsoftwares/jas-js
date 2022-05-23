@@ -22,7 +22,7 @@ if (args[`_`][0] == "start" || args[`_`][0] == "load") {
             }
         }
     }
-    if (!(args.f || args[`_`].length == 1)) {
+    if (!(args.f)) {
         console.log(chalk.blue(`
 Description: compiles jas and runs it
 
