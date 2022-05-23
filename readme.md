@@ -6,6 +6,21 @@ Cli: [Retro](https://github.com/retrouser955)
 
 Package: [AHQ Softwares](https://github.com/ahqsoftwares)
 
+## Installation
+
+Installing JAS without CLI
+
+```bash
+npm i jas-script
+```
+
+With CLI
+
+```bash
+npm i -D jas-script
+# or install it globally
+npm i -g jas-script
+```
 
 ## Example
 ```js

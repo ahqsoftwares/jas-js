@@ -1,13 +1,6 @@
 const EventEmitter = require("events");
 const fs = require("fs-extra");
 const VM = require("vm");
-const defaultOptions = {
-    format: "jas",
-    saveCompiledFile: false,
-    debug: false
-};
-let options = defaultOptions;
-let file = "";
 let dbase = {};
 /**
  * JAS the ts style js
@@ -21,15 +14,22 @@ class JAS extends EventEmitter {
     constructor (path, options) {
         let opt = options;
         super();
-
-        options = {
-            format: opt?.format || "jas",
-            debug: opt?.debug || false,
-            saveCompiledFile: opt?.saveCompiledFile || false
+        if(!options) {
+            this.options = {
+                format: "jas",
+                saveCompiledFile: false,
+                debug: false
+            };
+        } else {
+            this.options = {
+                format: opt?.format || "jas",
+                debug: opt?.debug || false,
+                saveCompiledFile: opt?.saveCompiledFile || false
+            }
         }
 
         try {
-            file = String(path);
+            this.file = String(path);
             fs.readFile(path, (err, out) => {
                 if (err) {
                     console.error("JAS-System-Error: Could not find " + file);
@@ -46,8 +46,8 @@ class JAS extends EventEmitter {
     }
 
     compile(path) {
-        if (!(path)) {
-            fs.readFile(file, function(error, out) {
+        if (!path) {
+            fs.readFile(this.file, function(error, out) {
                 if (error) throw new Error(String(error));
                 VM.runInNewContext(String(out), {
                     need: require,
