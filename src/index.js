@@ -35,7 +35,7 @@ class JAS extends EventEmitter {
         }
         (async() => {
         try {
-            if (!(file)) {
+            if (!(path)) {
                 console.log(chalk.yellow("File is not mentioned!\nYou have to mention the file path every time you use jas"));
                 return;
             }
