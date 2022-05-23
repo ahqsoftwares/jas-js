@@ -1,6 +1,8 @@
 const EventEmitter = require("events");
 const fs = require("fs-extra");
 const VM = require("vm");
+const chalk = require("chalk");
+const fetch = require("node-fetch");
 let dbase = {};
 let file = "";
 /**
@@ -19,13 +21,15 @@ class JAS extends EventEmitter {
             this.options = {
                 format: "jas",
                 saveCompiledFile: false,
-                debug: false
+                debug: false,
+                cli: false
             };
         } else {
             this.options = {
                 format: opt?.format || "jas",
                 debug: opt?.debug || false,
-                saveCompiledFile: opt?.saveCompiledFile || false
+                saveCompiledFile: opt?.saveCompiledFile || false,
+                cli: opt?.cli || false
             }
         }
 
@@ -34,10 +38,10 @@ class JAS extends EventEmitter {
             file = String(path);
             fs.readFile(path, (err, out) => {
                 if (err) {
-                    console.error("JAS-System-Error: Could not find " + file);
+                    console.error(chalk.redBright("JAS-System-Error: Could not find " + file));
                     process.exit(404);
                 }
-                console.log(`JAS-System-info: Found file ${file}`);
+                console.log(chalk.yellowBright(`JAS-System-info: Found file ${file}`));
                 if (this.options.debug) {
                     console.log(`Contents:\n${out}`);
                 }
@@ -45,6 +49,15 @@ class JAS extends EventEmitter {
         } catch(e) {
             throw new Error(e);
         }
+        fetch("https://registry.npmjs.com/jas-script").then(data => data.json()).catch(e =>{
+            console.log(chalk.red("Could not check for updates!"));
+        }).then(data => {
+            if (!(opt.cli)) {
+                if (data[`dist-tags`][require("../package.json")[`ver_type`]] !== require("../package.json")[`version`]) {
+                    console.log(chalk.green(`Seems like an update available! Install the latest update by using ${chalk.yellowBright(`npm i --save-dev jas-script@${require("../package.json")[`ver_type`]}`)}`));
+                }
+            }
+        });
     }
 
     compile(path) {

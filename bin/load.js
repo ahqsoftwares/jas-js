@@ -5,10 +5,10 @@ const utils = require('./utils.js');
 const args = await (require("./parse.js"))(process.argv);
 const fetch = require("node-fetch");
 fetch("https://registry.npmjs.com/jas-script").then(data => data.json()).catch(e =>{
-    console.log(e);
+    console.log(chalk.red("Could not check for updates!"));
 }).then(data => {
     if (data[`dist-tags`][require("../package.json")[`ver_type`]] !== require("../package.json")[`version`]) {
-        console.log(chalk.green(`Seems like an update available! Install the latest update by using npm i --save-dev jas-script@${require("../package.json")[`ver_type`]}`));
+        console.log(chalk.green(`Seems like an update available! Install the latest update by using ${chalk.yellowBright(`npm i --save-dev jas-script@${require("../package.json")[`ver_type`]}`)}`));
     }
 });
 if (args[`_`][0] == "start" || args[`_`][0] == "load") {
@@ -27,7 +27,7 @@ Options:
     -f, -file      Path of the file you want to compile     [string] [required]`));
         process.exit(1);
     }
-    console.log("Please wait...");
+    console.log(chalk.yellow("Please wait..."));
     console.log("\n");
     utils.complile(args.f);
 } else if (args[`_`][0] == "version" || args[`_`][0] == "ver" || args[`version`] || args[`ver`]) {

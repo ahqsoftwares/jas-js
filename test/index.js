@@ -1,5 +1,5 @@
 (async() => {
-const jas = require("jas-script");
+const jas = require("../src/index");
 const jaas = new jas("./test/hi.js", {
          debug: false
 });
