@@ -2,6 +2,7 @@
 const yargs = require("yargs")
 const utils = require('./utils.js')
 const usage = "\n Usage <file_path> compiles jas and runs it"
+console.log(process.options);
 const options = yargs
     .usage(usage)
     .option("f", { alias: "file", describe: "Path of the file you want to comple", type: "string", demandOption: true })

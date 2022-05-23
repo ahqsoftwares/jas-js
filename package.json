@@ -1,6 +1,6 @@
 {
   "name": "jas-script",
-  "version": "0.2.2-beta",
+  "version": "0.2.3-beta",
   "description": "A ts style version of js",
   "main": "src/index.js",
   "scripts": {
@@ -31,6 +31,6 @@
   },
   "homepage": "https://github.com/ahqsoftwares/jas-js#readme",
   "bin": {
-    "load": "./bin/load.js"
+    "jas": "./bin/load.js"
   }
 }

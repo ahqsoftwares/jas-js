@@ -1,7 +1,7 @@
 (async() => {
-const jas = require("../src/index");
-const jaas = new jas("./test/hi.ts", {
+const jas = require("jas-script");
+const jaas = new jas("./test/hi.js", {
          debug: false
 });
-await jaas.compile("./test/hi.ts");
+await jaas.compile();
 })()
