@@ -42,7 +42,7 @@ module.compile();
 print(`Hello world!`);
 ```
 now just run `node index.js` and you'll see the result
-```js
+```bash
 JAS-System-info: Found file ./test/code.ts
 Hello world
 ``` 
@@ -141,7 +141,7 @@ Contents under CLI:-
 
 ## How to install the cli?
 To install the `cli` use the following command
-```js
+```bash
 npm i jas-script -g --save
 ```
 
@@ -149,13 +149,23 @@ npm i jas-script -g --save
 You can run your jas code directly from the cli without using a js file by the following cmd
 
 ### If installed globally
-```js
+```bash
 load -f <fs file path>
 ```
 
 ### If install a devDeps
-```js
-jas-script load -f <fs file path>
+
+Make a script in your package.json named "start"
+
+```json
+"scripts": {
+    "start": "load -f \"yourFile.js\""
+},
+```
+Then run
+
+```bash
+npm start
 ```
 
 # NOTE
