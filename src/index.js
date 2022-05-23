@@ -73,7 +73,7 @@ class JAS extends EventEmitter {
                         },
                         set: function(key, value) {
                             if (!key) throw new Error("key is required!");
-                            if (!value) throw new Error("value is required!");
+                            if (typeof(value) == "undefined") throw new Error("value is required!");
                             dbase[key] = value;
                         },
                         add: function(key, int) {
@@ -121,7 +121,7 @@ class JAS extends EventEmitter {
                         },
                         set: function(key, value) {
                             if (!key) throw new Error("key is required!");
-                            if (!value) throw new Error("value is required!");
+                            if (typeof(value) == "undefined") throw new Error("value is required!");
                             dbase[key] = value;
                         },
                         add: function(key, int) {

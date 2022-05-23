@@ -1,4 +1,9 @@
-module.exports = async(data) => {
+/**
+ * Parse data [i]
+ * @param {Array} data 
+ * @returns parsed data in object
+ */
+module.exports = async function parse(data) {
          let ans = {
                   "_": []
          };
