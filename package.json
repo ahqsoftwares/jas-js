@@ -1,6 +1,6 @@
 {
   "name": "jas-script",
-  "version": "0.3.2-beta",
+  "version": "0.3.3-beta",
   "ver_type": "beta",
   "description": "A ts style version of js",
   "main": "src/index.js",
@@ -19,6 +19,7 @@
     "chalk": "^3.0.0-beta.2",
     "events": "^3.3.0",
     "fs-extra": "^10.1.0",
+    "inquirer": "^8.2.4",
     "node-fetch": "^2.6.7"
   },
   "directories": {

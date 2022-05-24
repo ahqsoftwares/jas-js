@@ -57,7 +57,7 @@
                   } catch(e) {
                            console.log(chalk.yellow("Creating the folder!"));
                   }
-                  fs.copy(`./templates/${parse[answers.project_type]}`, `${process.cwd()}/${answers.project_name}`, async function(error, out) {
+                  fs.copy(`${__dirname}/templates/${parse[answers.project_type]}`, `${process.cwd()}/${answers.project_name}`, async function(error, out) {
                            if (error) throw new Error(String(chalk.red(error)));
                            console.log(chalk.yellowBright("Copied the required files!\nStarting to install packages!"));
                            await exec(`cd "${process.cwd()}/${answers.project_name}" && npm init -y && npm i . --force`);
