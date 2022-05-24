@@ -3,7 +3,7 @@
  * @param {Array} data 
  * @returns parsed data in object
  */
-module.exports = async function parse(data) {
+ module.exports = async function parse(data) {
          let ans = {
                   "_": []
          };

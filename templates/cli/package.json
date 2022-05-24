@@ -1,0 +1,19 @@
+{
+  "name": "jas-tempbase",
+  "version": "1.0.0",
+  "description": "JAS tempbase tutorial",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo \"Alert: Starting...\" && node ."
+  },
+  "keywords": [
+    "jas",
+    "templates"
+  ],
+  "dependencies": {
+    "chalk": "^3.0.0-beta.2",
+    "jas-script": "latest"
+  },
+  "author": "AHQ Miness",
+  "license": "MIT"
+}

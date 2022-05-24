@@ -1,0 +1,18 @@
+{
+  "name": "jas-hello-world",
+  "version": "1.0.0",
+  "description": "JAS hello world app",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo \"Alert: Starting...\" && node ."
+  },
+  "keywords": [
+    "jas",
+    "templates"
+  ],
+  "dependencies": {
+    "jas-script": "latest"
+  },
+  "author": "AHQ Miness",
+  "license": "MIT"
+}
