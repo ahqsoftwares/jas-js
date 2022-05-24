@@ -149,16 +149,25 @@ print(process.mainCwd())
 # 3. `__dirname` is now `dir`
 
 # CLI
+
 JAS also has a new CLI, as of 0.2.0.
 Contents under CLI:-
 1. [How to use?](#how-to-install-the-cli)
 2. [Run jas code](#run-your-jas-code-from-the-cli)
 3. [Get jas version from cli](#get-version-name-from-the-cli)
+4. [Use prebuild templates](#use-prebuild-templates)
 
 ## How to install the cli?
 To install the `cli` use the following command
 ```bash
 npm i jas-script -g --save
+```
+
+To view the help menu view use
+```bash
+jas
+/*or*/
+jas help
 ```
 
 ## Run your jas code from the cli
@@ -210,6 +219,20 @@ jas --version
 You can use `jas --ver` also
 */
 jas --ver
+```
+
+## Use prebuild templates
+To use our prebuild templates use the following command
+```bash
+jas create
+/*
+Apparantly there are some aliases
+*/
+jas make
+/*or*/
+jas --create
+/*or*/
+jas --make
 ```
 
 # NOTE
