@@ -70,7 +70,9 @@ class JAS extends EventEmitter {
         if (!path) {
             fs.readFile(file, function(error, out) {
                 if (error) throw new Error(String(error));
-                VM.runInNewContext(String(out), {
+                VM.runInNewContext(`(async () => {
+                    ${String(out)}
+                })()`, {
                     need: require,
                     process: {
                         ...process,
@@ -169,7 +171,9 @@ class JAS extends EventEmitter {
         } else {
             fs.readFile(path, function(error, out) {
                 if (error) throw new Error(String(error));
-                VM.runInNewContext(String(out), {
+                VM.runInNewContext(`(async () => {
+                    ${String(out)}
+                })()`, {
                     need: require,
                     process: {
                         ...process,
